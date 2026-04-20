@@ -38,10 +38,10 @@ test('google test browser', async ({browser})=>{
   console.log(pageUrl);
 })
 
-test('google test zero destructuring', async ({})=>{
-  let browser:Browser = await chromium.launch({channel:"chromium", headless:false})
- let page:Page = await browser.newPage(); // create a new page
- await page.goto("https://www.google.com");
+test('google test zero destructuring', async ({page})=>{
+//   let browser:Browser = await chromium.launch({channel:"chromium", headless:false})
+//  let page:Page = await browser.newPage(); // create a new page
+//  await page.goto("https://www.google.com");
   let title:string =await page.title(); // 
   console.log(title);
 
