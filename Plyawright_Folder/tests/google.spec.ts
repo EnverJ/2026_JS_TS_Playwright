@@ -8,4 +8,5 @@ test('google title test', async ({page})=>{
   let pageUrl:string = page.url();
   console.log(pageUrl);
   // await page.waitForTimeout(5000);
+  await page.pause();
 })
