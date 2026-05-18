@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "codegen":"npx playwright codegen https://naveenautomationlabs.com/opencart/index.php?route=account/register"
+    "test": "playwright test",
+    "test:pseudo": "playwright test tests/day12/psudeele.spec.ts",
+    "codegen": "npx playwright codegen https://naveenautomationlabs.com/opencart/index.php?route=account/register"
   },
   "keywords": [],
   "author": "Enver",
