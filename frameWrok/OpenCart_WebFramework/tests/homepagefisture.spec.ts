@@ -1,29 +1,21 @@
-import {test, expect } from "@playwright/test"
-import { LoginPage } from "../src/pages/LoginPage"
-import { HomePage } from "../src/pages/HomePage";
+import {test, expect } from '../src/fixtures/pageFixtures'
 
-let loginPage: LoginPage;
-let homePage: HomePage;
-
-test.beforeEach(async ({ page }) => {
-  loginPage = new LoginPage(page);
+test.beforeEach(async ({loginPage}) => {
   await loginPage.gotToLoginPage();
   await loginPage.doLogin('pwtestbatch@open.com', 'pw123');
-
-  homePage = new HomePage(page);
 });
 
-test('home page title test',async ({})=>{
+test('home page title test',async ({homePage})=>{
     const pageTitle = await homePage.getHomePageTitle();
     console.log('home page title is ', pageTitle);
     expect(pageTitle).toBe('My Account');
 });
 
-test('logout link exist test',async ({})=>{
+test('logout link exist test',async ({homePage})=>{
   expect(await homePage.isLogoutLinkExist()).toBeTruthy();
 });
 
-test('home page header  is exist test',async ({})=>{
+test('home page header  is exist test',async ({homePage})=>{
  let allHeaders =  await homePage.getHomePageHeader();
  console.log('home page headers', allHeaders);
  expect.soft(allHeaders).toHaveLength(4);

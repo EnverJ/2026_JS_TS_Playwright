@@ -1,16 +1,10 @@
 // test cases
-import {test, expect } from "@playwright/test"
-import { LoginPage } from "../src/pages/LoginPage"
-import { HomePage } from "../src/pages/HomePage";
-
-let loginPage: LoginPage;
-let homepage: HomePage;
+import {test, expect} from '../src/fixtures/pageFixtures'
 
 
-test.beforeEach(async ({ page }) => {
-  loginPage = new LoginPage(page);
+test.beforeEach(async ({ loginPage }) => {
   await loginPage.gotToLoginPage();
-  homepage = new HomePage(page);
+
 });
 
 // test('login page title test',async ({page})=>{
@@ -26,19 +20,19 @@ test.beforeEach(async ({ page }) => {
 //     await loginPage.gotToLoginPage();
 //     expect(await loginPage.isForgotPwdLinkExist()).toBeTruthy();
 // });
-test('login page title test',async ({})=>{
+test('login page title test',async ({loginPage})=>{
     const pageTitle = await loginPage.getLoginPageTitle();
     console.log('login page title is ', pageTitle);
     expect(pageTitle).toBe('Account Login');
 });
 
-test('forgot password link test',async ({})=>{
+test('forgot password link test',async ({loginPage})=>{
     expect(await loginPage.isForgotPwdLinkExist()).toBeTruthy();
 });
 
-test('user able to login test',async ({})=>{
+test('user able to login test',async ({loginPage,homePage})=>{
    await loginPage.doLogin('pwtestbatch@open.com', 'pw123');
-   expect(await homepage.isLogoutLinkExist()).toBeTruthy();
-   expect(await homepage.getHomePageTitle()).toBe('My Account');
+   expect(await homePage.isLogoutLinkExist()).toBeTruthy();
+   expect(await homePage.getHomePageTitle()).toBe('My Account');
 
 });
