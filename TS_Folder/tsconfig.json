@@ -108,6 +108,6 @@
   },
   "include": [
     "*.ts"
-, "day2/dataType_01.ts"  ]
+, "day02/dataType_01.ts"  ]
 
 }

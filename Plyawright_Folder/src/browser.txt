@@ -1,0 +1,19 @@
+nverjume@Envers-MacBook-Pro Plyawright_Folder % pwd  
+/Users/enverjume/naveen_2026/enver/js_2026/Plyawright_Folder
+enverjume@Envers-MacBook-Pro Plyawright_Folder % cd ~/Library/Caches/ms-playwright 
+enverjume@Envers-MacBook-Pro ms-playwright % pwd
+/Users/enverjume/Library/Caches/ms-playwright
+enverjume@Envers-MacBook-Pro ms-playwright % ls 
+chromium_headless_shell-1217    ffmpeg-1011                     webkit-2272
+chromium-1217                   firefox-1511
+enverjume@Envers-MacBook-Pro ms-playwright % ls -alt
+total 0
+drwx------+ 199 enverjume  staff  6368 Apr 16 12:58 ..
+drwxr-xr-x    9 enverjume  staff   288 Apr 12 21:20 .
+drwxr-xr-x    4 enverjume  staff   128 Apr 12 21:20 .links
+drwxr-xr-x@   6 enverjume  staff   192 Apr 12 21:18 ffmpeg-1011
+drwxr-xr-x@  23 enverjume  staff   736 Apr 12 21:18 webkit-2272
+drwxr-xr-x@   5 enverjume  staff   160 Apr 12 21:18 firefox-1511
+drwxr-xr-x@   5 enverjume  staff   160 Apr 12 21:18 chromium_headless_shell-1217
+drwxr-xr-x@   5 enverjume  staff   160 Apr 12 21:18 chromium-1217
+drwxr-xr-x    3 enverjume  staff    96 Jan 17  2024 .settings

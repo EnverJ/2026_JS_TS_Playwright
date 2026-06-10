@@ -1,0 +1,19 @@
+{
+  "name": "plyawright_folder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:pseudo": "playwright test tests/day12/psudeele.spec.ts",
+    "codegen": "npx playwright codegen https://naveenautomationlabs.com/opencart/index.php?route=account/register"
+  },
+  "keywords": [],
+  "author": "Enver",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^25.6.0"
+  }
+}
