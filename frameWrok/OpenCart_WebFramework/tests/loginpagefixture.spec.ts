@@ -1,5 +1,7 @@
 // test cases
 import {test, expect} from '../src/fixtures/pageFixtures'
+import { LoginPage } from '../src/pages/LoginPage';
+import { CsvHelper } from '../src/utils/csvHelper';
 
 
 test.beforeEach(async ({ loginPage }) => {
@@ -31,8 +33,28 @@ test('forgot password link test',async ({loginPage})=>{
 });
 
 test('user able to login test',async ({loginPage,homePage})=>{
-   await loginPage.doLogin('pwtestbatch@open.com', 'pw123');
+   await loginPage.doLogin(process.env.USERNAME!, process.env.PASSWORD!);
    expect(await homePage.isLogoutLinkExist()).toBeTruthy();
    expect(await homePage.getHomePageTitle()).toBe('My Account');
 
 });
+
+//DD_1. sequence mode -- onl 1 test is running with test data one by one using testData. from fixture
+// test('user login to web using wrong credentials  test',async ({loginPage,testData})=>{
+//    for(let row of testData){
+//     await loginPage.doLogin(row.username,row.password);
+//     expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
+//    }
+
+// });
+
+// DD_2. without fixture, parallel mode. read csv data directly and loop the test method row size...(recommended)
+let testData = CsvHelper.readCsv('src/data/loginData.csv');
+
+for (let row of testData){
+    test (`invalid login test - ${row.username}=${row.password}` , async({loginPage})=>{
+          await loginPage.doLogin(row.username,row.password);
+          expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
+
+    })
+}

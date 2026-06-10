@@ -27,6 +27,6 @@ test('home page header  is exist test',async ({})=>{
  let allHeaders =  await homePage.getHomePageHeader();
  console.log('home page headers', allHeaders);
  expect.soft(allHeaders).toHaveLength(4);
- expect.soft(allHeaders).toEqual(['My Account','My Orders', 'My Affiliate Account','Newsletter'])
+ expect.soft(allHeaders).toEqual(['My Account','My Orders', 'My Affiliate Account','Newsletter', "New Customer","Returning Customer",])
 });
 

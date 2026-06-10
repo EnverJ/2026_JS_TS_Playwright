@@ -1,4 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+
+// env = qa npx playwright test. --- this will run the test on qa env, if no value by default it is qa as declared below
+const ENV = process.env.ENV || "qa";
+console.log(`running tests on Environment: ${ENV}`);
+dotenv.config({path:`config/.env.${ENV}`})
 
 /**
  * Read environment variables from file.
@@ -36,7 +42,7 @@ reporter: [
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-     baseURL: 'https://naveenautomationlabs.com/',
+     baseURL: process.env.BASE_URL,
      screenshot:'only-on-failure',
      video:'retain-on-failure',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */

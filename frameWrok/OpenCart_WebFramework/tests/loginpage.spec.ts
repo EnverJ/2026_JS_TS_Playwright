@@ -26,19 +26,19 @@ test.beforeEach(async ({ page }) => {
 //     await loginPage.gotToLoginPage();
 //     expect(await loginPage.isForgotPwdLinkExist()).toBeTruthy();
 // });
-test('login page title test',async ({})=>{
+test('login page title test',async ({page})=>{
     const pageTitle = await loginPage.getLoginPageTitle();
     console.log('login page title is ', pageTitle);
     expect(pageTitle).toBe('Account Login');
 });
 
-test('forgot password link test',async ({})=>{
+test('forgot password link test',async ({page})=>{
     expect(await loginPage.isForgotPwdLinkExist()).toBeTruthy();
 });
 
-test('user able to login test',async ({})=>{
+test('user able to login test',async ({page})=>{
    await loginPage.doLogin('pwtestbatch@open.com', 'pw123');
    expect(await homepage.isLogoutLinkExist()).toBeTruthy();
-   expect(await homepage.getHomePageTitle()).toBe('My Account');
+   expect(await homepage.getHomePageTitle()).toBe('My')
 
 });
